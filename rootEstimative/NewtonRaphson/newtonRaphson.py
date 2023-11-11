@@ -41,7 +41,7 @@ def newtonRaphson(function: Callable[[float], float], initialEst: Union[int, flo
             float: derivative value at x
         """
         derivativeValue: float = (1/h)*(function(x+h) - function(x))
-        assert derivativeValue > zeroSlope
+        assert abs(derivativeValue) > abs(zeroSlope)
         return derivativeValue
     
     
@@ -88,5 +88,8 @@ def newtonRaphson(function: Callable[[float], float], initialEst: Union[int, flo
     return {'iterations': iterCounter, 'root': x_iter, 'y value': yValue, 'Stop Condition Code': stopCode} 
 
 if __name__ == '__main__':
-    print(newtonRaphson(function=minhaFuncao, initialEst=8.31, rootTol=1e-7, yTol=1e-7, maxIter=20))
+    def minhaFuncao(var: Union[int, float]) -> Union[int, float]:
+        return 4*(var**4) + 3*(var**3) + var - 2
+
+    print(newtonRaphson(function=minhaFuncao, initialEst=-0.5, rootTol=1e-7, yTol=1e-7, maxIter=20))
 
