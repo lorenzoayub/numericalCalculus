@@ -4,7 +4,7 @@ from math import copysign, log
 Number = Union[int, float]
 
 
-def fixedPoint(function: Callable, initialEstimative: Number, tol: float, verbose=False):
+def fixedPoint(function: Callable, initialEstimative: Number, tolerance: float, verbose=False):
 
     def stopCriteria() -> bool:
         """Checks if the difference between two consecutive estimatives is
@@ -15,7 +15,7 @@ def fixedPoint(function: Callable, initialEstimative: Number, tol: float, verbos
             returns False
         """
 
-        if abs(u - f_u) >= tol:
+        if abs(u - f_u) >= tolerance:
             return False
         else:
             return True
