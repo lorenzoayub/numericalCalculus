@@ -11,7 +11,7 @@ def newtonRaphson(function: Callable[[float], float], initialEst: Union[int, flo
         yTol (float): tolerance of function's absolute value (<<1)
         maxIter (int): maximum number of iterations
         verbose (bool, optional): if True, prints the current iteration + current root estimative +
-#             current function value in when  x=root_estimative. Defaults to False.
+                               current function value in when  x=root_estimative. Defaults to False.
 
     Returns:
         dict[str, Any]: dictionary containing final results data. It follows the format:
